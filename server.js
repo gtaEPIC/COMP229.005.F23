@@ -1,26 +1,24 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 
 function logger(req, res, next) {
     console.log(req.method, req.url);
     next();
-}
-
-function helloWorld(req, res) {
-    res.send('Hello World!')
-}
-
-function goodbye(req, res) {
-    res.send('Goodbye!')
-}
-
+};
 app.use(logger);
-app.get("/", (req, res) => {
-    res.send("Welcome")
-});
-app.get("/goodbye", goodbye);
-app.get("/hello", helloWorld);
+
+app.get('/', function (req, res) {
+    res.send('Welcome')
+})
+
+app.get('/hello', function (req, res) {
+    res.send('Hello World!')
+})
 
 
-app.listen(3000);
-console.log('Server running on port 3000.');
+app.get('/goodbye', function (req, res) {
+    res.send('Good Bye')
+})
+
+console.log('Server running at http://localhost:3000/');
+app.listen(3000)

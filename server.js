@@ -5,7 +5,7 @@
  */
 
 var configDB = require('./config/db');
-var app = require('./config/app');
+var app = require('./config/express');
 var debug = require('debug')('comp229006:server');
 var http = require('http');
 
